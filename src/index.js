@@ -1,9 +1,11 @@
 function randomDelayPrint(message) {
-  Array.from(message).forEach(char => {
+  if (message.charAt(0)) {  
+    const delay = Math.random()*1000;
+    console.log(message.charAt(0),delay);
     setTimeout(() => {
-      console.log(char)
-    }, Math.random()*1000);
-  });
+      randomDelayPrint(message.substr(1))
+    }, delay);
+  }
 }
 
-randomDelayPrint('Hello!');
+randomDelayPrint('Hello');
